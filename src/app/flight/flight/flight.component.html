@@ -1,0 +1,39 @@
+<div class="container">
+  <section>
+    <div>
+      <h2 class="titulo">Voos Disponiveis</h2>
+      <div class="row">
+        <div class="col">
+          <table class="tabela">
+            <thead class="tabela__cabecalho">
+              <th class="tabela__cabecalho__conteudo">Codigo</th>
+              <th class="tabela__cabecalho__conteudo">Origem</th>
+              <th class="tabela__cabecalho__conteudo">Inicio da Viagem</th>
+              <th class="tabela__cabecalho__conteudo">Destino</th>
+              <th class="tabela__cabecalho__conteudo">Fim da Viagem</th>
+              <th class="tabela__cabecalho__conteudo">Preço</th>
+              <th class="tabela__cabecalho__conteudo"><a routerLink="/novoVoo" class="button"><img src="../../../assets/incluir.png" alt="Comprar" class="icone__incluir"></a></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let flight of flights" class="tabela__linha">
+                  <td class="tabela__conteudo">{{flight.id}}</td>
+                  <td class="tabela__conteudo">{{flight.origin}}</td>
+                  <td class="tabela__conteudo">{{flight.departureTime | date:'short'}}</td>
+                  <td class="tabela__conteudo">{{flight.destiny}}</td>
+                  <td class="tabela__conteudo">{{flight.arrivalTime | date:'short'}}</td>
+                  <td class="tabela__conteudo">{{flight.price | currency}}</td>
+                  <td class="tabela__conteudo">
+                    <div  class="botoes">
+                      <a href="comprarPassagem?id={{flight.id}}" class="button"><img src="../../../assets/excluir.png" alt="Excluir" class="icone"></a>
+                      <a href="comprarPassagem?id={{flight.id}}" class="button"><img src="../../../assets/botao_comprar.png" alt="Comprar" class="icone"></a>
+                    </div>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

@@ -1,0 +1,35 @@
+<div>
+  <div class="container">
+    <div>
+      <section>
+        <h2 class="titulo">Lista de Clientes</h2>
+        <div class="row">
+          <div class="col">
+            <table class="tabela">
+              <thead class="tabela__cabecalho">
+                <th class="tabela__cabecalho__conteudo">Codigo</th>
+                <th class="tabela__cabecalho__conteudo">Nome</th>
+                <th class="tabela__cabecalho__conteudo">Email</th>
+                <th class="tabela__cabecalho__conteudo">Telefone</th>
+                <th class="tabela__cabecalho__conteudo"><a routerLink="/novoCliente" class="button"><img src="../../../assets/incluir.png" alt="Comprar" class="icone__incluir"></a></th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cliente of clientes" class="tabela__linha">
+                    <td class="tabela__conteudo">{{cliente.id}}</td>
+                    <td class="tabela__conteudo"><a href="perfil">{{cliente.nome}}</a></td>
+                    <td class="tabela__conteudo">{{cliente.email}}</td>
+                    <td class="tabela__conteudo">{{cliente.telefone}}</td>
+                    <td class="tabela__conteudo">
+                      <div class="botoes">
+                        <a routerLink="/cliente" class="button" (click)="delete(cliente.id)"><img src="../../../assets/excluir.png" alt="Excluir" class="icone"></a>
+                        <a routerLink="/alterarCliente" [queryParams]="{id:cliente.id}" class="button"><img src="../../../assets/editar.png" alt="Comprar" class="icone"></a>
+                      </div>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </section>
+      </div>
+</div>

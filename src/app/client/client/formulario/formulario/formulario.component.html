@@ -1,0 +1,55 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="card mt-4 mb-2 p-4">
+    <h1 class="fw-normal mt-3 text-center mb-5 card-header">{{titulo}}</h1>
+    <div class="card-body p-2">
+      <div class="d-flex justify-content-between">
+        <div class="mb-3 pe-2 w-50">
+          <label for="nome" class="form-label control-label">Nome</label>
+          <input type="text" [(ngModel)]="nome" name="nome" class="form-control" id="nome" formControlName="nome" placeholder="Insira um nome">
+          <div *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched" class="error">
+            Nome obrigatório
+          </div>
+      </div>
+
+        <div class="mb- w-50">
+          <label for="cpf" class="form-label">CPF</label>
+          <input class="form-control" mask="000.000.000-00"[(ngModel)]="cpf" formControlName="cpf" id="cpf" minlength="11" maxlength="14" placeholder="Insira um CPF">
+          <div *ngIf="formulario.get('cpf')?.errors?.['required'] && formulario.get('cpf')?.touched"  class="error">
+            Este CPF parece não ser válido
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <div class="mb-3 pe-2 w-50">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" [(ngModel)]="email" class="form-control" id="email" formControlName="email" placeholder="Insira um E-mail">
+          <div *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched"  class="error">
+            Email obrigatório
+          </div>
+        </div>
+
+        <div class="mb-3 w-50">
+          <label for="telefone" class="form-label">Celular</label>
+          <input type="text" [(ngModel)]="telefone" mask="(00)00000-0000" class="form-control" id="telefone" formControlName="telefone" placeholder="(XX) XXXXX-XXXX">
+          <div *ngIf="formulario.get('telefone')?.errors?.['required'] && formulario.get('telefone')?.touched"  class="error">
+            Celular obrigatório
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Endereço</label>
+        <input type="text" [(ngModel)]="logradouro" name="logradouro" class="form-control" id="endereco" formControlName="logradouro" placeholder="Insira um Endereço">
+        <div *ngIf="formulario.get('logradouro')?.errors?.['required'] && formulario.get('logradouro')?.touched"  class="error">
+          Endereco obrigatório
+        </div>
+      </div>
+
+      <div class="botao">
+        <a routerLink="/cliente" class="btn btn-danger p-1 me-2 w-25 fw-bold">Cancelar</a>
+        <button type="submit" class="btn btn-primary w-25 fw-bold"><a>Salvar</a></button>
+      </div>
+    </div>
+  </div>
+</form>
