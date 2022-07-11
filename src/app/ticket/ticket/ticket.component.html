@@ -8,15 +8,21 @@
             <thead class="tabela__cabecalho">
               <th class="tabela__cabecalho__conteudo">Codigo</th>
               <th class="tabela__cabecalho__conteudo">Cliente</th>
-              <th class="tabela__cabecalho__conteudo">Destino do Voo</th>
-              <th class="tabela__cabecalho__conteudo">Data</th>
+              <th class="tabela__cabecalho__conteudo">Origem</th>
+              <th class="tabela__cabecalho__conteudo">Previsão de partida</th>
+              <th class="tabela__cabecalho__conteudo">Destino</th>
+              <th class="tabela__cabecalho__conteudo">Previsão de chegada</th>
+              <th class="tabela__cabecalho__conteudo">Compra</th>
               <th class="tabela__cabecalho__conteudo"></th>
             </thead>
             <tbody>
               <tr *ngFor="let ticket of tickets" class="tabela__linha">
                   <td class="tabela__conteudo">{{ticket.id}}</td>
                   <td class="tabela__conteudo"><a href="perfil">{{ticket.client.nome}}</a></td>
+                  <td class="tabela__conteudo">{{ticket.flight.origin}}</td>
+                  <td class="tabela__conteudo">{{ticket.flight.departureTime}}</td>
                   <td class="tabela__conteudo">{{ticket.flight.destiny}}</td>
+                  <td class="tabela__conteudo">{{ticket.flight.arrivalTime}}</td>
                   <td class="tabela__conteudo">{{ticket.dataCompra | date:'short'}}</td>
                   <td class="tabela__conteudo icone"><a routerLink="/passagem" (click)="delete(ticket.id)"><img src="../../../assets/excluir.png" class="icone"></a></td>
               </tr>

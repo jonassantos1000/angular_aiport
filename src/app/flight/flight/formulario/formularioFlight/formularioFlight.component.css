@@ -19,3 +19,23 @@ a{
 .error{
   color: red;
 }
+
+.time{
+  width: 40%;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.date{
+  width: 60%;
+  text-align: center;
+  margin-right: 3px;
+}
+
+.body_chegada {
+  width: 30%;
+}
+
+.body_chegada_destino{
+  width: 70%;
+}

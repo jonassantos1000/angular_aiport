@@ -47,6 +47,6 @@ export class ComprarTicketComponent implements OnInit {
     this.ticket.dataCompra= "2022-06-11 11:30:20";
     this.service.comprarTicket(this.ticket).subscribe(sucess => console.log("sucesso"),
     error => console.error("falhou"), () => console.log("fluxo finalizado."));
-    this.router.navigate(['passagem']);
+    this.router.navigate(['/passagem'], {relativeTo: this.route});
   }
 }

@@ -17,4 +17,12 @@ export class FlightService {
   flightById(id: number):Observable<Flight> {
     return this.httpClient.get<Flight>(this.url+"/"+id);
   }
+
+  post(flight: Flight){
+    return this.httpClient.post(this.url, flight);
+  }
+
+  delete(id: Number){
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }

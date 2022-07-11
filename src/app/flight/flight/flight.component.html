@@ -24,7 +24,7 @@
                   <td class="tabela__conteudo">{{flight.price | currency}}</td>
                   <td class="tabela__conteudo">
                     <div  class="botoes">
-                      <a href="comprarPassagem?id={{flight.id}}" class="button"><img src="../../../assets/excluir.png" alt="Excluir" class="icone"></a>
+                      <a routerLink="voos" class="button"><img src="../../../assets/excluir.png" alt="Excluir" class="icone" (click)="delete(flight.id)"></a>
                       <a href="comprarPassagem?id={{flight.id}}" class="button"><img src="../../../assets/botao_comprar.png" alt="Comprar" class="icone"></a>
                     </div>
                   </td>

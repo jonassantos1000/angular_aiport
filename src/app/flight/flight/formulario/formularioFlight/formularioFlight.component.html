@@ -5,7 +5,7 @@
     <div class="card-body p-2">
 
         <div class="d-flex justify-content-between">
-          <div class="mb-3 pe-2 w-50">
+          <div class="mb-2 pe-2 body_chegada_destino">
             <label for="origin" class="form-label control-label">Origem</label>
             <input type="text" [(ngModel)]="origin" name="origin" class="form-control" id="origin" formControlName="origin" placeholder="Insira o destino">
             <div *ngIf="formulario.get('origin')?.errors?.['required'] && formulario.get('origin')?.touched" class="error">
@@ -13,17 +13,29 @@
             </div>
           </div>
 
-        <div class="mb-3 pe-2 w-50">
-          <label for="departureTime" class="form-label control-label">Data de partida</label>
-          <input type="text" mask="XX/XX/XXXX HH:MM:XX" [(ngModel)]="departureTime" name="departureTime" class="form-control" id="departureTime" formControlName="departureTime" placeholder="Insira o horário de partida">
-          <div *ngIf="formulario.get('departureTime')?.errors?.['required'] && formulario.get('departureTime')?.touched" class="error">
-            Data de partida obrigatório
+          <div class="mb-2 body_chegada form-label control-label d-flex flex-column">Previsão de partida
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column align-items-center date">
+                <label for="departureDate" class="form-label control-label"></label>
+                <input type="text" mask='00/00/0000' (change)="validDate('partida')" [(ngModel)]="departureDate" name="departureDate" class="form-control" id="departureDate" formControlName="departureDate" placeholder="00/00/0000">
+                <div *ngIf="formulario.get('departureDate')?.errors?.['required'] && formulario.get('departureDate')?.touched" class="error">
+                  Obrigatório *
+                </div>
+              </div>
+
+              <div class="d-flex flex-column align-items-center time">
+                <label for="departureTime" class="form-label control-label"></label>
+                <input class="text-center" type="text" mask="00:00" (change)="validTime('partida')" [(ngModel)]="departureTime" name="departureTime" class="form-control" id="departureTime" formControlName="departureTime" placeholder="00:00">
+                <div *ngIf="formulario.get('departureTime')?.errors?.['required'] && formulario.get('departureTime')?.touched" class="error">
+                  Obrigatório *
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
       <div class="d-flex justify-content-between">
-        <div class="mb-3 pe-2 w-50">
+        <div class="mb-2 pe-2 body_chegada_destino">
           <label for="destiny" class="form-label control-label">Destino</label>
           <input type="text" [(ngModel)]="destiny" name="destiny" class="form-control" id="destiny" formControlName="destiny" placeholder="Insira o destino">
           <div *ngIf="formulario.get('destiny')?.errors?.['required'] && formulario.get('destiny')?.touched" class="error">
@@ -31,19 +43,31 @@
           </div>
         </div>
 
-        <div class="mb-3 pe-2 w-50">
-          <label for="arrivalTime" class="form-label control-label">Data de chegada</label>
-          <input type="text" mask="XX/XX/XXXX HH:MM:XX" [(ngModel)]="arrivalTime" name="arrivalTime" class="form-control" id="arrivalTime" formControlName="arrivalTime" placeholder="Insira o horário de chegada">
-          <div *ngIf="formulario.get('arrivalTime')?.errors?.['required'] && formulario.get('arrivalTime')?.touched" class="error">
-            Data de chegada obrigatório
+        <div class="mb-2 body_chegada form-label control-label d-flex flex-column">Previsão de chegada
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column align-items-center date">
+              <label for="arrivalDate" class="form-label control-label"></label>
+              <input type="text" mask='00/00/0000' (change)="validDate('chegada')" [(ngModel)]="arrivalDate" name="arrivalDate" class="form-control" id="arrivalDate" formControlName="arrivalDate" placeholder="00/00/0000">
+              <div *ngIf="formulario.get('arrivalDate')?.errors?.['required'] && formulario.get('arrivalDate')?.touched" class="error">
+                Obrigatório *
+              </div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center time">
+              <label for="arrivalTime" class="form-label control-label"></label>
+              <input class="text-center" type="text" mask="00:00" (change)="validTime('chegada')" [(ngModel)]="arrivalTime" name="arrivalTime" class="form-control" id="arrivalTime" formControlName="arrivalTime" placeholder="00:00">
+              <div *ngIf="formulario.get('arrivalTime')?.errors?.['required'] && formulario.get('arrivalTime')?.touched" class="error">
+                Obrigatório *
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="d-flex justify-content-between">
-        <div class="mb-3 pe-2 w-50">
+        <div class="mb-2 pe-2 w-50">
           <label for="price" class="form-label control-label">Preço</label>
-          <input type="text" [(ngModel)]="price" name="price" class="form-control" id="price" formControlName="price" placeholder="Insira o destino">
+          <input type="text" mask="separator.2" thousandSeparator="." decimalMarker="," [(ngModel)]="price" name="price" class="form-control" id="price" formControlName="price" placeholder="Insira o destino">
           <div *ngIf="formulario.get('price')?.errors?.['required'] && formulario.get('price')?.touched" class="error">
             Preço obrigatório
           </div>

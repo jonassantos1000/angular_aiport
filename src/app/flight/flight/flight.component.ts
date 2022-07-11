@@ -17,4 +17,13 @@ export class FlightComponent implements OnInit {
     })
   }
 
+  delete(id: Number){
+    this.service.delete(id).subscribe((flight)=>{
+      alert('Voo apagado com sucesso !');
+      this.flights= this.flights.filter(voo => voo.id != id);
+    },
+      error => alert(`Erro: ${error.error.mensagem}`)
+    )
+  }
+
 }

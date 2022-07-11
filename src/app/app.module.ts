@@ -6,7 +6,7 @@ import { ClientComponent } from './client/client/client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlightComponent } from './flight/flight/flight.component';
 import { AppRoutingModule } from './app-routing.module';
-import localePt from '@angular/common/locales/pt';
+import localeBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { ComprarTicketComponent } from './ticket/ticket/comprarTicket/comprarTicket.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { FormularioFlightComponent } from './flight/flight/formulario/formulario
 import { NovoFlightComponent } from './flight/flight/novoFlight/novoFlight/novoFlight.component';
 
 
-registerLocaleData(localePt, 'pt');
+registerLocaleData(localeBr, 'pt');
 export const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -39,6 +39,7 @@ export const maskConfig: Partial<IConfig> = {
     FormularioComponent,
     NovoFlightComponent,
     FormularioFlightComponent,
+
   ],
   imports: [
     BrowserModule,
